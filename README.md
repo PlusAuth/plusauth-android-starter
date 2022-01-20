@@ -10,7 +10,7 @@
     Simple Android project demonstrates basic authentication flows with PlusAuth
     <br />
     <br />
-    <a href="https://docs.plusauth.com/quickStart/spa/vue" target="_blank"><strong>Explore the PlusAuth Android docs »</strong></a>
+    <a href="https://docs.plusauth.com/quickStart/native/android" target="_blank"><strong>Explore the PlusAuth Android docs »</strong></a>
 </p>
 
 <details>
