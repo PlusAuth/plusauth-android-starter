@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             plusAuth.login(this, new LoginRequest().setScope("openid offline_access profile email"), new AuthenticationCallback() {
                 @Override
                 public void onSuccess(Credentials credentials) {
+                    runOnUiThread(() -> buttonLogin.setEnabled(true));
                     getUserInfo();
                 }
 
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     // Get User Info and reconfigure views after successful authentication
+                    runOnUiThread(() -> buttonLogout.setEnabled(true));
                     configureViews(false, null);
                 }
 
@@ -98,6 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                 public void onFailure(AuthenticationException e) {
                     // Show Login button, hide Profile and Logout buttons
                     runOnUiThread(() -> configureViews(false, null));
+                    // Clear credentials if invalid
+                    plusAuth.getCredentialsManager().clearCredentials();
                 }
             });
         } else {
